@@ -1,0 +1,37 @@
+﻿<Page x:Class="AutoShcool.Pages.AccStud"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ma="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:AutoShcool.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AccStud">
+
+    <Grid Background="Wheat">
+        <StackPanel>
+            <Label Content="Расписание" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Margin="20" FontFamily="Britannic Bold"></Label>
+
+            <TextBlock Text="Выберете Дату:" FontSize="19" Margin="0 -30 0 0" FontFamily="Cascadia Mono" />
+            <DatePicker x:Name="datePicker" Grid.Row="1" SelectedDateChanged="DatePicker_SelectedDateChanged" Margin="-2" Width="779" Height="29" />
+
+            <TextBlock Text="Расписание Занятий:" FontSize="19" Margin="0 10 0 0" Grid.Row="2" FontFamily="Cascadia Mono" Height="22" />
+            <WrapPanel x:Name="timeButtonPanel" Grid.Row="3" Orientation="Horizontal" Margin="10" />
+        </StackPanel>
+
+        <Grid Margin="0,326,0,28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                </ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ma:PackIconMaterial Kind="Home" Width="80" Height="40" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <ma:PackIconMaterial Kind="Exclamation" Width="80" Height="40" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Column="1" MouseDown="TerNav"/>
+            <ma:PackIconMaterial Kind="FaceManProfile" Width="80" Height="40" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Column="2" MouseDown="ProfNav"/>
+        </Grid>
+
+
+    </Grid>
+</Page>

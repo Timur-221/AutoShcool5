@@ -1,0 +1,63 @@
+﻿<Page x:Class="AutoShcool.Pages.PDDPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ma="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:AutoShcool.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PDDPage">
+
+    <Grid Background="Wheat">
+        <Grid>
+            <TextBlock Text="Теория" HorizontalAlignment="Center" FontSize="20" Margin="0,10,0,353" FontFamily="Britannic Bold" />
+
+            <StackPanel>
+                <Border Background="AliceBlue" Width="727" Height="80" Margin="0 60 0 0" CornerRadius="25">
+                    <StackPanel>
+                        <TextBlock Text="МАТЕРИАЛЫ ШКОЛЫ" Margin="20 5 0 0" FontSize="15" FontFamily="Bodoni MT Black"></TextBlock>
+                        <TextBlock Text="Полезная информация по вашему обучению в школе." Margin="20 5 0 0" FontSize="15" FontFamily="Cascadia Mono"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <ma:PackIconMaterial Kind="Book" Width="50" Height="50" Margin="698,72,0,0" MouseDown="TerNav1"/>
+            </StackPanel>
+            <StackPanel>
+                <Border Background="AliceBlue" Width="728" Height="80" Margin="25,155,25,0" CornerRadius="25">
+                    <StackPanel>
+                        <TextBlock Text="ТЕСТИРОВАНИЕ" Margin="20 5 0 0" FontSize="15" FontFamily="Bodoni MT Black"></TextBlock>
+                        <TextBlock Text="Промежуточные зачёты и внутренние экхамены, открытые для вас." Margin="20 5 0 0" FontSize="15" FontFamily="Cascadia Mono"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <ma:PackIconMaterial Kind="FileDocument" Width="50" Height="50" Margin="698,165,0,0" MouseDown="TerNav2"/>
+            </StackPanel>
+            <StackPanel>
+                <Border Background="AliceBlue" Width="730" Height="80" Margin="25,257,25,0" CornerRadius="25">
+                    <StackPanel>
+                        <TextBlock Text="ПРАВИЛА ДОРОЖНОГО ДВИЖЕНИЯ" Margin="20 5 0 0" FontSize="15" FontFamily="Bodoni MT Black"></TextBlock>
+                        <TextBlock Text="Офицальный текст ПДД РФ." Margin="20 5 0 0" FontSize="15" FontFamily="Cascadia Mono"></TextBlock>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <ma:PackIconMaterial Kind="TrafficLightOutline" Height="60" Width="62" Margin="692,268,0,0" MouseDown="WebPDD"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="0,344,0,-49">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                </ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ma:PackIconMaterial Kind="Home" Width="80" Height="40" HorizontalAlignment="Center" Margin="0,10,0,0" MouseDown="AccNav" />
+            <ma:PackIconMaterial Kind="Exclamation" Width="80" Height="40" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Column="1"/>
+            <ma:PackIconMaterial Kind="FaceManProfile" Width="80" Height="40" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Column="2" MouseDown="ProfNav"/>
+        </Grid>
+    </Grid>
+</Page>
