@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoShcool.MyClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace AutoShcool.Pages
     /// </summary>
     public partial class AccStud : Page
     {
+        UserInfo UserInfo { get; set; } 
+
+        public AccStud(UserInfo userInfo)
+        {
+            InitializeComponent();
+            UserInfo= userInfo; 
+        }
+
         public AccStud()
         {
             InitializeComponent();
+
         }
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -54,7 +64,7 @@ namespace AutoShcool.Pages
 
         private void ProfNav(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new ProfPage());
+            NavigationService.Navigate(new ProfPage(UserInfo));
         }
     }
 }

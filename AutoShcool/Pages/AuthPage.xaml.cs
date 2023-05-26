@@ -54,7 +54,7 @@ namespace AutoShcool.Pages
                 bool isStudentValid = Mon.CheckStudentExists(UserInfo.Login, UserInfo.Password);
                 if (isStudentValid)
                 {
-                    NavigationService.Navigate(new AccStud());
+                    NavigationService.Navigate(new AccStud(UserInfo));
                 }
                 else
                 {

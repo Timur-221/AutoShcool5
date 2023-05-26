@@ -35,11 +35,11 @@
             </StackPanel>
 
             <TextBlock Text="ООО 'Мотор'" Margin="340,2,295,226" FontFamily="Cascadia Mono" FontSize="20" Grid.ColumnSpan="2" />
-            <TextBlock Text="Тимур" Margin="67,31,17,282" x:Name="Nametext" FontFamily="Segoe UI Black" FontSize="15"/>
-            <TextBlock Text="Исламов" Margin="120,62,0,226" FontFamily="Segoe UI Black" FontSize="15"/>
-            <TextBlock Text="Альбртович" Margin="120,88,0,184" FontFamily="Segoe UI Black" FontSize="15"/>
-            <TextBlock Text="42" Margin="95,118,0,145" FontFamily="Segoe UI Black" FontSize="15"/>
-            <TextBlock Text="B" Margin="130,146,333,146" FontFamily="Segoe UI Black" FontSize="15" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="t1" Margin="67,31,17,282"  FontFamily="Segoe UI Black" FontSize="15"/>
+            <TextBlock  x:Name="t2" Margin="120,62,0,226" FontFamily="Segoe UI Black" FontSize="15"/>
+            <TextBlock  x:Name="t3" Margin="120,88,0,184" FontFamily="Segoe UI Black" FontSize="15"/>
+            <TextBlock  x:Name="t4" Margin="95,118,0,145" FontFamily="Segoe UI Black" FontSize="15"/>
+            <TextBlock  x:Name="t5" Margin="130,146,333,146" FontFamily="Segoe UI Black" FontSize="15" Grid.ColumnSpan="2"/>
 
             <StackPanel Grid.Column="1" Margin="10,10,10,10">
 

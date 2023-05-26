@@ -19,6 +19,10 @@ using AutoShcool.DB;
 using AutoShcool.MyClass;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Text.Json;
+using System.Collections.ObjectModel;
+using Microsoft.VisualBasic;
+using System.Collections;
 
 namespace AutoShcool.Pages
 {
@@ -27,9 +31,26 @@ namespace AutoShcool.Pages
     /// </summary>
     public partial class ProfPage : Page
     {
+        UserInfo UserInfo { get; set; }
+
+        MongoClient Client { get; set; } = new MongoClient("mongodb://localhost:27017");
+        public ProfPage(UserInfo userInfo)
+        {
+            InitializeComponent();
+            IMongoDatabase database = Client.GetDatabase("AutoSchool");
+            UserInfo = userInfo;
+            Filtr(database,userInfo);
+            t1.Text = UserInfo.Name;
+            t2.Text = UserInfo.FName;
+            t3.Text = UserInfo.Otchestvo;
+            t4.Text = UserInfo.NumGroup;
+            t5.Text = UserInfo.Category;
+        }
+
         public ProfPage()
         {
             InitializeComponent();
+          
         }
 
         private void AccNav(object sender, MouseButtonEventArgs e)
@@ -40,6 +61,28 @@ namespace AutoShcool.Pages
         private void ExNAv(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+        }
+
+        public async void Filtr(IMongoDatabase database,UserInfo userInfo)
+        {
+            var collection = database.GetCollection<BsonDocument>("Student");
+
+
+
+
+            var filter = new BsonDocument { { "Login", userInfo.Login }, { "Password", userInfo.Password } };
+
+            List<BsonDocument> users = await collection.Find(filter).ToListAsync();
+            foreach (var user in users)
+            {
+                userInfo.Name = user["Name"].AsString;
+                userInfo.FName= user["FName"].AsString;
+                userInfo.Otchestvo = user["Otchestvo"].AsString;
+                userInfo.NumGroup = user["NumGroup"].AsString;
+                userInfo.Category = user["Category"].AsString;
+      
+            }   
+
         }
 
         //private void TextBlock_Loaded(object sender, RoutedEventArgs e)

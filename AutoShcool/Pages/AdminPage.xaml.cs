@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,16 @@ namespace AutoShcool.Pages
         MonD Mon { get; set; }
 
         UserInfo UserInfo { get; set; }
+
+        MongoClient Client { get; set; }  = new MongoClient("mongodb://localhost:27017");
+        
+
+        List<string> Names = new List<string>();
         public AdminPage()
         {
             InitializeComponent();
+            IMongoDatabase database  = Client.GetDatabase("AutoSchool");
+            DBList(database);
             Mon = new MonD();
             UserInfo = new UserInfo();
         }
@@ -51,6 +59,9 @@ namespace AutoShcool.Pages
             UserInfo.Otchestvo = OtcText.Text;
 
             Mon.AddUser(UserInfo);
+            string fullName = $"{FNameText.Text} {NameText.Text}";
+            Names.Add(fullName);
+            userListBox.ItemsSource = Names.ToList();
             MessageBox.Show("Добавлен Ученик!");
 
             usernameTextBox.Text = string.Empty;
@@ -60,13 +71,20 @@ namespace AutoShcool.Pages
             NameText.Text = string.Empty;
             FNameText.Text = string.Empty ;
             OtcText.Text = string.Empty ;
+
+            
+
+            
+
+            // Привязка обновленных данных к ItemsSource свойству ListBox
+
         }
 
 
-        private void LoadNamesFromMongoDB(object sender, RoutedEventArgs e)
+        
+
+        public void DBList(IMongoDatabase database)
         {
-            MongoClient client = new MongoClient("mongodb://localhost:27017");
-            IMongoDatabase database = client.GetDatabase("AutoSchool");
             var collection = database.GetCollection<BsonDocument>("Student");
 
             var filter = Builders<BsonDocument>.Filter.Empty;
@@ -84,7 +102,9 @@ namespace AutoShcool.Pages
                 names.Add(fullName);
             }
 
-            userListBox.ItemsSource = names;
+            Names = names;
+
+            userListBox.ItemsSource = Names.ToList();
         }
     }
 }
